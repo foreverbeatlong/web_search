@@ -17,8 +17,6 @@ async def web_search(url:str) -> str:
     soup = BeautifulSoup(response.text, "html.parser")
     return soup.text
 
-app = Starlette(
-    routes=[
-        Mount('/', app=mcp.sse_app()),
-    ]
-)
+if __name__ == "__main__":
+    print("STDIO server started")
+    mcp.run()
